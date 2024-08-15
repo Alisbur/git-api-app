@@ -1,6 +1,29 @@
 @import "../../styles/colors.scss";
 
 .container {
+  flex-grow: 1;
   padding: 24px 32px 24px 24px;
   background-color: $dataFieldbg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  max-width: calc(0.25 * 100vw);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 40px;
+  color: rgba(0, 0, 0, 0.87);
+  margin: 0;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.87);
+  margin: 0;
 }
