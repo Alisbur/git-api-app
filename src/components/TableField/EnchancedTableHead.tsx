@@ -1,5 +1,5 @@
 import React from "react";
-import { RepoItem, EnhancedTableProps, Order } from '../../shared/types';
+import { Row, EnhancedTableProps, Order } from '../../shared/types';
 import { Box, TableCell, TableHead, TableRow, TableSortLabel } from "@mui/material";
 import { visuallyHidden } from '@mui/utils';
 import { headCells } from './headerItems';
@@ -8,7 +8,7 @@ export function EnhancedTableHead(props: EnhancedTableProps) {
   const { order, orderBy, onRequestSort } = props;
   
   const createSortHandler =
-    (property: keyof RepoItem) => (event: React.MouseEvent<unknown>) => {
+    (property: keyof Row) => (event: React.MouseEvent<unknown>) => {
       onRequestSort(event, property);
     };
 

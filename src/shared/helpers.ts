@@ -1,4 +1,4 @@
-import { Order } from "./types";
+import { Order, ResponseRepoItem, RepoItem } from "./types";
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
@@ -32,4 +32,21 @@ export function stableSort<T>(array: readonly T[], comparator: (a: T, b: T) => n
     return a[1] - b[1];
   });
   return stabilizedThis.map((el) => el[0]);
+}
+
+export const normalizeFetchedResults = (data: ResponseRepoItem[]): RepoItem[] | [] => {
+  if(!data) return [];
+  const result = data.reduce((acc, item: ResponseRepoItem) => {
+    return [...acc, {
+      id: item.id, 
+      name: item.name, 
+      language: item.language, 
+      forks_count: item.forks_count, 
+      stargazers_count: item.stargazers_count, 
+      updated_at: item.updated_at,
+      license: item.license,
+      topics: item.topics,
+    }]
+  },[])
+  return result;
 }

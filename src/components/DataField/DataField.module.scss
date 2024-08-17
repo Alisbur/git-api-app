@@ -14,7 +14,7 @@
   font-size: 32px;
   font-weight: 400;
   line-height: 40px;
-  color: rgba(0, 0, 0, 0.87);
+  color: $textColor;
   margin: 0;
   overflow-x: hidden;
   text-overflow: ellipsis;
@@ -24,6 +24,6 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
-  color: rgba(0, 0, 0, 0.87);
+  color: $textColor;
   margin: 0;
 }
