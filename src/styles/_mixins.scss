@@ -1,0 +1,7 @@
+@import "variables";
+
+@mixin fontSet($fontSize: $fs-14, $fontWeight: $fw-400, $lineHeight: normal) {
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+}

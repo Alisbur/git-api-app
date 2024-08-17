@@ -1,4 +1,4 @@
-@import "../../styles/colors.scss";
+@import "../../styles/global.scss";
 
 .container {
   width: 100%;
@@ -8,8 +8,6 @@
 }
 
 .text {
-  font-size: 46px;
-  font-weight: 400;
-  line-height: 66px;
+  @include fontSet($fs-46, $fw-400, $lh-66);
   color: $textColor;
 }

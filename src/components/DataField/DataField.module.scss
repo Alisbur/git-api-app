@@ -1,4 +1,4 @@
-@import "../../styles/colors.scss";
+@import "../../styles/global.scss";
 
 .container {
   flex-grow: 1;
@@ -11,6 +11,7 @@
 
 .title {
   max-width: calc(0.25 * 100vw);
+  @include fontSet($fs-32, $fw-400, $lh-40);
   font-size: 32px;
   font-weight: 400;
   line-height: 40px;
@@ -21,9 +22,7 @@
 }
 
 .text {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
+  @include fontSet($fs-14, $fw-400, $lh-20);
   color: $textColor;
   margin: 0;
 }
