@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { BASE_URL, BASE_URL_GQL } from "../../shared/constants";
+import { BASE_URL } from "../../shared/constants";
 import { GitResponse } from "../../shared/types";
 
 export const searchApi = createApi({
