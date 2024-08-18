@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+**Тестовое задание "Приложение для поиска репозиториев в Github"**
+## *Задание*
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* реализовать Web-приложение для поиска репозиториев GitHub с помощью GitHub REST API или GitHub GraphQL API.
+* Результаты поиска представить в виде таблицы со следующими столбцами: название, язык, число форков, число звёзд, дата обновления.
+* По выбору строки должны отображаться детали. В деталях выбранного репозитория необходимо отобразить: название, описание, лицензию.
+* Должна быть реализована пагинация и сортировка с возможностью выбора направления по следующим столбцам: число звёзд, число форков, дата обновления.
+* Дизайн приложения должен соответствовать представленному в Figma.
 
-## Available Scripts
 
-In the project directory, you can run:
+## *Применяемые технологии*
+---
+При создании одностраничного веб-приложения применялись следующие технологии:
+1. React
+2. Язык строгой типизации TypeScript.
+3. Компоненты из библиотеки MUI.
+4. Загрузка данных реализована с использованием Redux Toolkit RTK Query и REST Api.
+5. Для стилизации обычных компонентов использовался sass.
 
-### `npm start`
+## *Описание работы приложения*
+---
+1. При открытии страницы приложения появляется поле ввода запроса и приветственная страница.
+2. При вооде запроса и нажатии на поиск производится выдача результатов в форме таблицы. Количество результатов - 100 шт, так как это максимальный объём одной страницы выдачи поиска Github. Подгрузка других страниц в данной реализации не предусмотрена.
+3. При отсутствии результатов выводится соответствующее сообщение.
+4. При ошибке во время запроса выводится соответствующее сообщение.
+5. В таблице реализована пагинация с шагом 10, 25, 50.
+6. В таблице реализована сортировка по столбцам Число форков, Число звёзд, Дата обновления.
+7. При клике на строчку репозитория в поле сбоку выводится дополнительная информация о репозотории, включающая название, язык программирования, количество звёзд, теги, тип лицензии, если есть.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+*В приложении не предусмотрена адаптивность и респонсивность, а также не применяются технологии для улучшения доступности*
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+*Для запуска приложения следует использовать скрипт ***npm run start.***
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+***Приложение также развёрнуто в Vercel по ссылке [ссылке](https://git-api-4hn0qta0z-alisburs-projects-aad3e897.vercel.app/).***
