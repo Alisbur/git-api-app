@@ -1,17 +1,14 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import styles from "./Header.module.scss"
 import { Stack, Button, TextField } from "@mui/material";
 
 interface HeaderProps {
   querryTrigger: (arg1: string, arg2: boolean) => void;
+  active: boolean;
 }
 
-export const Header = ({querryTrigger} : HeaderProps) => {
+export const Header = ({querryTrigger, active} : HeaderProps) => {
   const [searchString, setSearchString] = useState<string>('');
-
-  useEffect(()=>{
-    console.log(searchString);
-  }, [searchString])
 
   return (
     <div className={styles.container}>
@@ -26,6 +23,7 @@ export const Header = ({querryTrigger} : HeaderProps) => {
           fullWidth
           InputProps={{ style: {height: "42px", backgroundColor: "white"}}}
           value={searchString}
+          autoComplete="off"
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
             setSearchString(event.target.value)
           }}
@@ -34,7 +32,7 @@ export const Header = ({querryTrigger} : HeaderProps) => {
           variant="contained" 
           style={{width: "105px", height: "42px"}} 
           disableElevation 
-          disabled={!searchString.length}
+          disabled={!searchString.length || !active}
           onClick={()=>{
             querryTrigger(searchString, false)
           }}>Искать</Button>

@@ -1,5 +1,6 @@
 import { Order, ResponseRepoItem, RepoItem } from "./types";
 
+//функция компаратор значений типа String или Number
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -10,6 +11,9 @@ function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
   return 0;
 }
 
+//функция компаратор объектов, которая принимает тип сортировки и свойство по 
+//которому требуется сортировать объекты и возвращает функцию компаратора
+//соответствующих свойств объектов по возрастанию или убыванию
 export function getComparator<Key extends keyof any>(
   order: Order,
   orderBy: Key,
@@ -22,6 +26,7 @@ export function getComparator<Key extends keyof any>(
     : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
+//функция сортировки массива с использованием компаратора
 export function stableSort<T>(array: readonly T[], comparator: (a: T, b: T) => number) {
   const stabilizedThis = array.map((el, index) => [el, index] as [T, number]);
   stabilizedThis.sort((a, b) => {
@@ -34,6 +39,7 @@ export function stableSort<T>(array: readonly T[], comparator: (a: T, b: T) => n
   return stabilizedThis.map((el) => el[0]);
 }
 
+//функция преобразования массива результатов запроса к api в массив объектов типа RepoItem
 export const normalizeFetchedResults = (data: ResponseRepoItem[]): RepoItem[] | [] => {
   if(!data) return [];
   const result = data.reduce((acc, item: ResponseRepoItem) => {
